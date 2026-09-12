@@ -1,2 +1,134 @@
-
-
+[
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "success",
+        "timestamp": "2026-09-12 22:48:25",
+        "args": [
+            "admin_sec",
+            "AdminPass123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:48:25",
+        "args": [
+            "admin_sec",
+            "WrongPass123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "unknown_user",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:48:25",
+        "args": [
+            "unknown_user",
+            "AdminPass123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "success",
+        "timestamp": "2026-09-12 22:48:28",
+        "args": [
+            "admin_sec",
+            "AdminPass123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:48:28",
+        "args": [
+            "admin_sec",
+            "WrongPass123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "unknown_user",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:48:28",
+        "args": [
+            "unknown_user",
+            "AdminPass123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "success",
+        "timestamp": "2026-09-12 22:49:12",
+        "args": [
+            "admin_sec",
+            "AdminPass123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:49:12",
+        "args": [
+            "admin_sec",
+            "WrongPassword"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:49:12",
+        "args": [
+            "hacker",
+            "SomePass123"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "success",
+        "timestamp": "2026-09-12 22:49:15",
+        "args": [
+            "admin_sec",
+            "AdminPass123!"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "admin_sec",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:49:15",
+        "args": [
+            "admin_sec",
+            "WrongPassword"
+        ],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "hacker",
+        "result": "failure",
+        "timestamp": "2026-09-12 22:49:15",
+        "args": [
+            "hacker",
+            "SomePass123"
+        ],
+        "kwargs": {}
+    }
+]
