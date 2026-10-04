@@ -1,0 +1,142 @@
+{
+  "summary": {
+    "generated_at": "2026-10-04T19:36:29+00:00",
+    "total_emails": 6,
+    "suspicious_emails": 3,
+    "hop_threshold": 3,
+    "risk_distribution": {
+      "CLEAN": 3,
+      "HIGH": 1,
+      "CRITICAL": 2
+    },
+    "return_path_mismatches": 2,
+    "reply_to_mismatches": 3,
+    "abnormal_hop_counts": 1,
+    "top_stopwords": [
+      [
+        "urgent",
+        1
+      ],
+      [
+        "verify your account",
+        1
+      ],
+      [
+        "password expired",
+        1
+      ],
+      [
+        "reset now",
+        1
+      ],
+      [
+        "payment required",
+        1
+      ]
+    ],
+    "sender_domains": {
+      "example.com": 6
+    }
+  },
+  "emails": [
+    {
+      "message_id": "001@example.invalid",
+      "subject": "Updated holiday policy",
+      "from_address": "hr@example.com",
+      "from_domain": "example.com",
+      "return_path": "hr@example.com",
+      "reply_to": "hr@example.com",
+      "return_path_mismatch": false,
+      "reply_to_mismatch": false,
+      "stopwords": [],
+      "hop_count": 2,
+      "abnormal_hops": false,
+      "risk_score": 0,
+      "risk_level": "CLEAN"
+    },
+    {
+      "message_id": "002@example.invalid",
+      "subject": "URGENT: Verify your account immediately",
+      "from_address": "security@example.com",
+      "from_domain": "example.com",
+      "return_path": "bounce@mailer.example.com",
+      "reply_to": "support@evil-example.invalid",
+      "return_path_mismatch": false,
+      "reply_to_mismatch": true,
+      "stopwords": [
+        "urgent",
+        "verify your account"
+      ],
+      "hop_count": 3,
+      "abnormal_hops": false,
+      "risk_score": 50,
+      "risk_level": "HIGH"
+    },
+    {
+      "message_id": "003@example.invalid",
+      "subject": "Invoice for September",
+      "from_address": "finance@example.com",
+      "from_domain": "example.com",
+      "return_path": "finance@example.com",
+      "reply_to": "finance@example.com",
+      "return_path_mismatch": false,
+      "reply_to_mismatch": false,
+      "stopwords": [],
+      "hop_count": 1,
+      "abnormal_hops": false,
+      "risk_score": 0,
+      "risk_level": "CLEAN"
+    },
+    {
+      "message_id": "004@example.invalid",
+      "subject": "Password expired - reset now",
+      "from_address": "helpdesk@example.com",
+      "from_domain": "example.com",
+      "return_path": "notifications@updates.example.invalid",
+      "reply_to": "password-reset@updates.example.invalid",
+      "return_path_mismatch": true,
+      "reply_to_mismatch": true,
+      "stopwords": [
+        "password expired",
+        "reset now"
+      ],
+      "hop_count": 4,
+      "abnormal_hops": true,
+      "risk_score": 100,
+      "risk_level": "CRITICAL"
+    },
+    {
+      "message_id": "005@example.invalid",
+      "subject": "Meeting agenda for Monday",
+      "from_address": "ceo@example.com",
+      "from_domain": "example.com",
+      "return_path": "ceo@example.com",
+      "reply_to": "ceo@example.com",
+      "return_path_mismatch": false,
+      "reply_to_mismatch": false,
+      "stopwords": [],
+      "hop_count": 1,
+      "abnormal_hops": false,
+      "risk_score": 0,
+      "risk_level": "CLEAN"
+    },
+    {
+      "message_id": "006@example.invalid",
+      "subject": "CONFIDENTIAL: payment required today",
+      "from_address": "payroll@example.com",
+      "from_domain": "example.com",
+      "return_path": "payroll@billing-example.invalid",
+      "reply_to": "payroll@billing-example.invalid",
+      "return_path_mismatch": true,
+      "reply_to_mismatch": true,
+      "stopwords": [
+        "payment required",
+        "confidential"
+      ],
+      "hop_count": 1,
+      "abnormal_hops": false,
+      "risk_score": 80,
+      "risk_level": "CRITICAL"
+    }
+  ]
+}

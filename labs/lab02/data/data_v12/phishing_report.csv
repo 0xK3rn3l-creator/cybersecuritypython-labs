@@ -1,0 +1,7 @@
+message_id,subject,from_address,from_domain,return_path,reply_to,return_path_mismatch,reply_to_mismatch,stopwords,hop_count,abnormal_hops,risk_score,risk_level
+001@example.invalid,Updated holiday policy,hr@example.com,example.com,hr@example.com,hr@example.com,False,False,,2,False,0,CLEAN
+002@example.invalid,URGENT: Verify your account immediately,security@example.com,example.com,bounce@mailer.example.com,support@evil-example.invalid,False,True,urgent; verify your account,3,False,50,HIGH
+003@example.invalid,Invoice for September,finance@example.com,example.com,finance@example.com,finance@example.com,False,False,,1,False,0,CLEAN
+004@example.invalid,Password expired - reset now,helpdesk@example.com,example.com,notifications@updates.example.invalid,password-reset@updates.example.invalid,True,True,password expired; reset now,4,True,100,CRITICAL
+005@example.invalid,Meeting agenda for Monday,ceo@example.com,example.com,ceo@example.com,ceo@example.com,False,False,,1,False,0,CLEAN
+006@example.invalid,CONFIDENTIAL: payment required today,payroll@example.com,example.com,payroll@billing-example.invalid,payroll@billing-example.invalid,True,True,payment required; confidential,1,False,80,CRITICAL
