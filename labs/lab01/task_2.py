@@ -1,9 +1,10 @@
-import sys
 import os
+import sys
+
 from tabulate import tabulate
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-from shared.student import STUDENT_NAME, GROUP_NAME, VARIANT_NUMBER
+from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
 
 users = {
     "devsecops_lead": {
@@ -63,57 +64,67 @@ def get_formatted_resources(res_list: list, levels: tuple) -> list:
     return formatted
 
 
-def check_user_access(user_id: str, resource_level: int, users_dict: dict, blocked_set: set) -> tuple:
+def check_user_access(
+    user_id: str, resource_level: int, users_dict: dict, blocked_set: set
+) -> tuple:
     if user_id not in users_dict:
         return False, "User not found"
-    
+
     if user_id in blocked_set:
         return False, "User is blocked"
-    
+
     user_info = users_dict[user_id]
-    
+
     if not user_info.get("active", False):
         return False, "Account inactive"
-    
+
     if user_info.get("clearance", 0) >= resource_level:
         return True, "Access granted"
     else:
         return False, "Insufficient clearance"
 
 
-def run_access_control_audit(users_dict: dict, res_list: list, blocked_set: set) -> list:
+def run_access_control_audit(
+    users_dict: dict, res_list: list, blocked_set: set
+) -> list:
     audit_results = []
-    
+
     all_users_to_check = set(users_dict.keys()).union(blocked_set)
-    
+
     for user_id in sorted(all_users_to_check):
         for res_name, res_level in res_list:
-            is_allowed, reason = check_user_access(user_id, res_level, users_dict, blocked_set)
-            
+            is_allowed, reason = check_user_access(
+                user_id, res_level, users_dict, blocked_set
+            )
+
             if is_allowed:
                 status_str = "ALLOW"
             else:
                 status_str = f"DENY ({reason})"
-                
-            audit_results.append({
-                "user": user_id,
-                "resource": res_name,
-                "status": status_str,
-                "is_allowed": is_allowed
-            })
-            
+
+            audit_results.append(
+                {
+                    "user": user_id,
+                    "resource": res_name,
+                    "status": status_str,
+                    "is_allowed": is_allowed,
+                }
+            )
+
     return audit_results
 
 
 def print_task2_results(formatted_resources: list, audit_results: list) -> None:
 
-    print(f"=== Студент: {STUDENT_NAME} | Група: {GROUP_NAME} | Варіант: {VARIANT_NUMBER} ===\n")
+    print(
+        f"=== Студент: {STUDENT_NAME} | Група: {GROUP_NAME} | Варіант: {VARIANT_NUMBER} ===\n"
+    )
 
     print("--- СПИСОК РЕСУРСІВ СИСТЕМИ ---")
     res_table = [[name, lvl] for name, lvl in formatted_resources]
     print(tabulate(res_table, headers=["Ресурс", "Рівень безпеки"], tablefmt="grid"))
-    print("\n" + "="*60 + "\n")
-    
+    print("\n" + "=" * 60 + "\n")
+
     print("--- РЕЗУЛЬТАТИ ПЕРЕВІРКИ ДОСТУПУ (LOG) ---")
     for log in audit_results:
         print(f"user=[{log['user']}] resource=[{log['resource']}] -> {log['status']}")

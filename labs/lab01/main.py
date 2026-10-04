@@ -58,30 +58,25 @@ def main():
     # ЗАВДАННЯ 3
     print(">>> ЗАВДАННЯ 3: Хешування, CSV-база та JSON-логування <<<\n")
     try:
-   
         create_users(users_to_register)
 
-        
         db_data = read_users_db()
         print_task3_results(db_data)
 
         print("\n--- ТЕСТУВАННЯ АВТЕНТИФІКАЦІЇ ТА ЛОГУВАННЯ (log.json) ---")
-        
-       
+
         res1 = login("admin_sec", "AdminPass123!")
         print(f"1. Вхід admin_sec (вірний пароль): {'SUCCESS' if res1 else 'FAILED'}")
 
-        
         res2 = login("admin_sec", "WrongPassword")
         print(f"2. Вхід admin_sec (невірний пароль): {'SUCCESS' if res2 else 'FAILED'}")
 
-        
         res3 = login("hacker", "SomePass123")
         print(f"3. Вхід hacker (неіснуючий): {'SUCCESS' if res3 else 'FAILED'}")
 
         print("\n[OK] Події успішно залоговано в labs/lab01/data/log.json")
 
-    except (FileNotFoundError, PermissionError, IOError, ValidationError, ValueError) as e:
+    except (OSError, ValidationError, ValueError) as e:
         print(f"[ОБРОБКА ВИНЯТКУ] Сталася помилка при виконанні Завдання 3: {e}")
 
 
