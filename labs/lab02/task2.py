@@ -29,7 +29,6 @@ RECEIVED_FROM_RE = re.compile(
     r"\bfrom\s+(?P<host>[A-Za-z0-9._\-\[\]:]+)", re.IGNORECASE
 )
 
-# Ваги індикаторів підозрілості (сума обрізається до 100).
 SCORE_RETURN_PATH_MISMATCH = 30
 SCORE_REPLY_TO_MISMATCH = 30
 SCORE_PER_STOPWORD = 10

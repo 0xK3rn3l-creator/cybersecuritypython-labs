@@ -1,10 +1,3 @@
-"""Завдання 1. Модель користувача, безпечної сесії та журналу аудиту.
-
-Демонструє інкапсуляцію (приватні __password_hash / __password_salt),
-наслідування (Admin -> User), композицію (UserAccount має User, Session,
-AuditLog) та спеціальні методи (__str__, __getitem__, __setitem__).
-"""
-
 import hashlib
 import hmac
 import os
