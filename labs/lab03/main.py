@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from labs.lab03.config import DOMAIN, THRESHOLD, UNIT, VALUE_MAX, VALUE_MIN
 from labs.lab03.database import initialize_database
 from labs.lab03.routers import categories, records
 from shared.student import GROUP_NAME, STUDENT_NAME, VARIANT_NUMBER
@@ -28,11 +29,12 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(
-    title="Облік використання сховищ",
+    title=DOMAIN,
     description=(
-        "Навчальний сервіс ЛР 3 (варіант 12). Зберігає виміри заповнення "
-        "сховищ: value - частка зайнятого простору у відсотках (одиниця: percent, "
-        "діапазон 0-100 включно), навчальний поріг реагування - 85.0. "
+        f"Навчальний сервіс ЛР 3 (варіант {VARIANT_NUMBER}). Зберігає виміри "
+        "заповнення сховищ: value - частка зайнятого простору у відсотках "
+        f"(одиниця: {UNIT}, діапазон {VALUE_MIN:g}-{VALUE_MAX:g} включно), "
+        f"навчальний поріг реагування - {THRESHOLD:g}. "
         "Категорії сховищ: logs, backups, archive."
     ),
     version="1.0.0",

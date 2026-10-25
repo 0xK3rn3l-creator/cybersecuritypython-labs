@@ -2,6 +2,8 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from labs.lab03.config import VALUE_MAX, VALUE_MIN
+
 
 class CategoryCreate(BaseModel):
     """Тіло запиту на створення категорії."""
@@ -25,7 +27,7 @@ class RecordCreate(BaseModel):
     code: str = Field(min_length=3, max_length=40)
     title: str = Field(min_length=3, max_length=120)
     category_id: int = Field(gt=0)
-    value: float = Field(ge=0, le=100, allow_inf_nan=False)
+    value: float = Field(ge=VALUE_MIN, le=VALUE_MAX, allow_inf_nan=False)
     status: Literal["new", "in_progress", "done"]
 
 
